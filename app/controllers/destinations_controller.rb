@@ -11,9 +11,8 @@ class DestinationsController < ApplicationController
 
   def update
     render json: Destination.all.find_by_id(params[:id]).update(destination_params)
-
   end
-
+  
   private
 
   def destination_params

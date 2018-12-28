@@ -10,6 +10,14 @@ class PicturesController < ApplicationController
     render json: Picture.create(picture_params)
   end
 
+  def update
+    render json: Picture.all.find_by_id(params[:id]).update
+  end
+
+  def destroy
+    render json: Picture.all.find_by_id(params[:id]).delete
+  end
+
   private
 
   def picture_params
