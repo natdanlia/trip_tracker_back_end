@@ -10,9 +10,14 @@ class DestinationsController < ApplicationController
   end
 
   def update
-    render json: Destination.all.find_by_id(params[:id]).update(destination_params)
+    Destination.all.find_by_id(params[:id]).update(destination_params)
+    render json: Destination.all.find_by_id(params[:id])
   end
-  
+
+  def destroy
+    render json: Destination.all.find_by_id(params[:id]).delete
+  end
+
   private
 
   def destination_params
